@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+<div id="pp">
+	<input name="username" v-model="username">
+	{{username}}
+	<a v-bind:href="username" v-model="username">点击一下</a>
+	<input type=button v-on:click="show1()" value="试试">
+	<br>
+	<input name="count" v-model="count">
+	<div v-if="count==1">demo1</div>
+	<div v-else-if="count==2">demo2</div>
+	<div v-else>demo3</div>
+	<div v-for ="addr in addrs">
+		{{addr}}<br>
+	</div>
+<script type="text/javascript" src ="js/vue.js"></script>
+<script>
+	new Vue({
+		el:"#pp",
+		methods:{
+			show1(){
+				alert("我被人给绑了");
+			}
+		},
+		data(){
+			return{
+				username:"",
+				addrs:["shanghai","xian","beijing"],
+				count:1
+			}
+		}
+	});
+</script>
+</body>
+</html>

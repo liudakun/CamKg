@@ -1,0 +1,28 @@
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+   <typeAliases> 
+   	   <package name="com.just.camkg.pojo"/> 
+    </typeAliases>
+  <environments default="development">
+  <!-- environment可以配置多个数据源，配置数据库的连接环境，通过default属性切换 -->
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <!-- dataSource即是数据库连接池 -->
+      <dataSource type="POOLED">
+      <!-- 这是我们数据库的连接信息 -->
+        <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/tool?useSSL=false&amp;serverTimezone=UTC"/>
+        <property name="username" value="root"/>
+        <property name="password" value="111111"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <!-- 指定SQL映射文件路径 -->
+  <mappers>
+    <mapper resource="com/just/camkg/dao/AccountMapper.xml"/>
+  </mappers>
+</configuration>
+
